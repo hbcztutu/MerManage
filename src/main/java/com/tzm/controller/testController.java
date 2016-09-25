@@ -50,6 +50,7 @@ public class testController {
 		if(UtilValidate.isEmpty(username)||UtilValidate.isEmpty(password)){
 			returnMap.put("returnCode", "99");
 			returnMap.put("returnMsg", "未找到用户");
+			Logger.info("返回信息"+JsonMaps.parseMapToJson(returnMap));
 			return JsonMaps.parseMapToJson(returnMap);
 		}
 		User userLogin=new User();
@@ -70,7 +71,7 @@ public class testController {
 		}
 	      	return JsonMaps.parseMapToJson(returnMap);
 	}
-	@RequestMapping(value="/testGet.do", method = RequestMethod.GET)
+	@RequestMapping(value="/testGet.do",  produces = {"application/json;charset=UTF-8"},method = RequestMethod.GET)
 	@ResponseBody  
 	public String toIndex2(HttpServletRequest request,Model model){
 		Logger.info("进入post方法，接收到的参数为username="+request.getParameter("username")+"password="+request.getParameter("password"));
@@ -80,6 +81,8 @@ public class testController {
 		if(UtilValidate.isEmpty(username)||UtilValidate.isEmpty(password)){
 			returnMap.put("returnCode", "99");
 			returnMap.put("returnMsg", "未找到用户");
+	     Logger.info("返回信息"+JsonMaps.parseMapToJson(returnMap));
+
 			return JsonMaps.parseMapToJson(returnMap);
 		}
 		User userLogin=new User();
@@ -98,6 +101,8 @@ public class testController {
 			model.addAttribute("user can not in use");
 			System.out.println("can not get user");
 		}
+    Logger.info("返回信息"+JsonMaps.parseMapToJson(returnMap));
+
 	      	return JsonMaps.parseMapToJson(returnMap);
 	}
 	
