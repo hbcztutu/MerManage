@@ -42,7 +42,7 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-			<!--数据源使用druid  -->
+		<!--数据源使用druid -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
@@ -104,6 +104,13 @@
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
 			<version>${mybatis.version}</version>
+		</dependency>
+
+		<!-- mybatis-plus -->
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus</artifactId>
+			<version>1.4.6</version>
 		</dependency>
 		<!-- mybatis/spring包 -->
 		<dependency>
