@@ -74,7 +74,7 @@ input:focus {
         0 2px 7px 0 rgba(0,0,0,.2);
 }
 
-button {
+button,.button{
     cursor: pointer;
     width: 300px;
     height: 44px;
@@ -105,7 +105,7 @@ button {
     -ms-transition: all .2s;
 }
 
-button:hover {
+button,.button:hover {
     -moz-box-shadow:
         0 15px 30px 0 rgba(255,255,255,.15) inset,
         0 2px 7px 0 rgba(0,0,0,.2);
@@ -117,7 +117,7 @@ button:hover {
         0 2px 7px 0 rgba(0,0,0,.2);
 }
 
-button:active {
+button,.button:active {
     -moz-box-shadow:
         0 15px 30px 0 rgba(255,255,255,.15) inset,
         0 2px 7px 0 rgba(0,0,0,.2);
