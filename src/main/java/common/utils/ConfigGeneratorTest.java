@@ -64,10 +64,10 @@ public class ConfigGeneratorTest {
     /*
      * 自定义类名，需要包含 %s 格式化会填充实体beanName
      */
-     cg.setMapperName("u_%sDao");
-     cg.setMapperXMLName("u_%sMapper");
-     cg.setServiceName("u_%sService");
-     cg.setServiceImplName("u_%sServiceImpl");
+     cg.setMapperName("%sDao");
+     cg.setMapperXMLName("%sMapper");
+     cg.setServiceName("%sService");
+     cg.setServiceImplName("%sServiceImpl");
      
     /**
      * 自定义 BaseEntity
