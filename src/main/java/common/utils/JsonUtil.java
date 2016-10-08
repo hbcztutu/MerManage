@@ -97,6 +97,7 @@ public class JsonUtil {
    * @throws IOException
    */
   public static Map<String, Object> parseMap(String jsonStr) throws IOException {
+    @SuppressWarnings("unchecked")
     Map<String, Object> map = objectMapper.readValue(jsonStr, Map.class);
     return map;
   }

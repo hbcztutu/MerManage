@@ -40,8 +40,10 @@ public class JarClassFind {
       } else {
         if (filelist[i].endsWith("jar")) {
           try {
+            @SuppressWarnings("resource")
             java.util.jar.JarFile jarfile = new java.util.jar.JarFile(path + filelist[i]);
-            for (Enumeration e = jarfile.entries(); e.hasMoreElements();) {
+            for (@SuppressWarnings("rawtypes")
+            Enumeration e = jarfile.entries(); e.hasMoreElements();) {
               String name = e.nextElement().toString();
               if (name.equals(classname) || name.indexOf(classname) > -1) {
                 System.out.println("No." + ++JarClassFind.count);

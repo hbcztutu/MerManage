@@ -1,7 +1,9 @@
 package com.tzm.service;
 
-import com.tzm.pojo.User;
+import java.util.Set;
+
 import com.baomidou.framework.service.ISuperService;
+import com.tzm.pojo.User;
 
 /**
  *
@@ -10,5 +12,6 @@ import com.baomidou.framework.service.ISuperService;
  */
 public interface UserService extends ISuperService<User> {
 
-
+  public Set<String> findRoles(String username);
+  public Set<String> findPermissions(String username);
 }
