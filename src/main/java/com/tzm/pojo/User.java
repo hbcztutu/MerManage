@@ -24,24 +24,25 @@ public class User implements Serializable {
 	private Long id;
 
 	/** 用户昵称 */
-	private String nickname;
+	private String username;
 
 	/** 邮箱|登录帐号 */
 	private String email;
 
 	/** 密码 */
-	private String pswd;
+	private String logpwd;
 
 	/** 创建时间 */
-	@TableField(value = "create_time")
-	private Date createTime;
+	private Date creattime;
 
 	/** 最后登录时间 */
-	@TableField(value = "last_login_time")
-	private Date lastLoginTime;
+	private Date lastlogintime;
 
 	/** 1:有效，0:禁止登录 */
 	private Long status;
+
+	/** 1锁定，0 正常 */
+	private Long locked;
 
 	public Long getId() {
 		return this.id;
@@ -51,12 +52,12 @@ public class User implements Serializable {
 		this.id = id;
 	}
 
-	public String getNickname() {
-		return this.nickname;
+	public String getUsername() {
+		return this.username;
 	}
 
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getEmail() {
@@ -67,28 +68,28 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
-	public String getPswd() {
-		return this.pswd;
+	public String getLogpwd() {
+		return this.logpwd;
 	}
 
-	public void setPswd(String pswd) {
-		this.pswd = pswd;
+	public void setLogpwd(String logpwd) {
+		this.logpwd = logpwd;
 	}
 
-	public Date getCreateTime() {
-		return this.createTime;
+	public Date getCreattime() {
+		return this.creattime;
 	}
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
+	public void setCreattime(Date creattime) {
+		this.creattime = creattime;
 	}
 
-	public Date getLastLoginTime() {
-		return this.lastLoginTime;
+	public Date getLastlogintime() {
+		return this.lastlogintime;
 	}
 
-	public void setLastLoginTime(Date lastLoginTime) {
-		this.lastLoginTime = lastLoginTime;
+	public void setLastlogintime(Date lastlogintime) {
+		this.lastlogintime = lastlogintime;
 	}
 
 	public Long getStatus() {
@@ -97,6 +98,14 @@ public class User implements Serializable {
 
 	public void setStatus(Long status) {
 		this.status = status;
+	}
+
+	public Long getLocked() {
+		return this.locked;
+	}
+
+	public void setLocked(Long locked) {
+		this.locked = locked;
 	}
 
 }
