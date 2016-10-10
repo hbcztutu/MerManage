@@ -32,7 +32,7 @@
 		<property name="permissionsLookupEnabled" value="true"></property>
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="authenticationQuery"
-			value="SELECT pswd FROM u_user WHERE nickname = ?"></property>
+			value="SELECT logpwd FROM u_user WHERE username = ?"></property>
 		<property name="userRolesQuery"
 			value="SELECT role_name from sec_user_role left join sec_role using(role_id) left join sec_user using(user_id) WHERE user_name = ?"></property>
 		<property name="permissionsQuery"
@@ -66,6 +66,12 @@
 		</property>
 	</bean>
 
+    <!-- shiro的缓存管理器，然后需要将缓存管理器注入到安全管理其中  -->  
+<bean id="shiroEhcacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">  
+       <!--classpath是缓存属性的配置文件  -->  
+       <property name="cacheManagerConfigFile" value="classpath:resources/ehcache-shiro.xml" />  
+</bean>
+    
 	<!-- 
 	   开启Shiro的注解(如@RequiresRoles，@RequiresPermissions)，需借助SpringAOP扫描使用Shiro注解的类，
 	   并在必要时进行安全逻辑验证

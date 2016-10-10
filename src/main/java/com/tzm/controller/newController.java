@@ -28,8 +28,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.tzm.service.UserService;
 
 import common.log.HiLogger;
+import common.shiro.CacheManager;
 import common.utils.JsonMaps;
 import common.utils.UtilValidate;
+import net.sf.ehcache.Cache;
 
 
 
@@ -64,8 +66,8 @@ public class newController {
 	   return JsonMaps.parseMapToJson(returnMap);
 	 }
 	  Map<String,Object> columnMap = new HashMap<>();
-	  columnMap.put("nickname", username);
-	  columnMap.put("pswd", passwrod);
+	  columnMap.put("username", username);
+	  columnMap.put("logpwd", passwrod);
 	  
 	 /* if(UtilValidate.isEmpty(userService.selectByMap(columnMap))){
 	    returnMap.put("errorMsg", "用户名或密码错误");
@@ -78,8 +80,12 @@ public class newController {
     
     try {  
       subject.login(token);  
-      if (subject.isAuthenticated()) {  
-
+      if (subject.isAuthenticated()) { 
+        CacheManager<String,Object> cacheManage = new CacheManager<>();
+        org.apache.shiro.cache.Cache<String, Object> cache = cacheManage.getCache();
+        cache.put( token.getUsername(),  token.getUsername());
+        cacheManage.setCache(cache);
+        System.out.println(cacheManage.get( token.getUsername())); 
         return token.getUsername();
         
         /*User user =  (User) userService.selectByMap(columnMap).get(0);
