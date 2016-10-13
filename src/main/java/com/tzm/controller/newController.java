@@ -28,10 +28,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.tzm.service.UserService;
 
 import common.log.HiLogger;
-import common.shiro.CacheManager;
+import common.log.Log;
 import common.utils.JsonMaps;
 import common.utils.UtilValidate;
-import net.sf.ehcache.Cache;
 
 
 
@@ -52,7 +51,8 @@ public class newController {
 
 
 	@RequestMapping(value="/testPost.do",   produces = {"application/json;charset=UTF-8"},method = RequestMethod.POST)
-	@ResponseBody 
+	@ResponseBody
+	@Log(name="您访问了testPost.do方法")
 	public String toIndex(HttpServletRequest request,Model model){
 	 Map<String,Object> returnMap = new HashMap<>();
 	 String msg = "";  
@@ -81,11 +81,12 @@ public class newController {
     try {  
       subject.login(token);  
       if (subject.isAuthenticated()) { 
-        CacheManager<String,Object> cacheManage = new CacheManager<>();
-        org.apache.shiro.cache.Cache<String, Object> cache = cacheManage.getCache();
-        cache.put( token.getUsername(),  token.getUsername());
-        cacheManage.setCache(cache);
-        System.out.println(cacheManage.get( token.getUsername())); 
+//        CacheManager<String,Object> cacheManage = new CacheManager<>();
+//        org.apache.shiro.cache.Cache<String, Object> cache = cacheManage.getCache();
+//        cache.put( token.getUsername(),  token.getUsername());
+//        cacheManage.setCache(cache);
+//        System.out.println(cacheManage.get( token.getUsername())); 
+        Logger.info("return:  "+token.getUsername());
         return token.getUsername();
         
         /*User user =  (User) userService.selectByMap(columnMap).get(0);
@@ -130,13 +131,14 @@ public class newController {
   
     
     }
+	@Log(name="您访问了userGet.do方法")
 	@RequestMapping(value="/userGet.do",  produces = {"application/json;charset=UTF-8"},method = RequestMethod.GET)
 	@ResponseBody  
 	public String toIndex2(HttpServletRequest request,Model model){
     return  toIndex(request,model);
     }
 	
-	
+	 @Log(name="您访问了test2.do方法")
 	@RequestMapping(value="/test2.do",method= RequestMethod.POST)
 	public String registerIndex(HttpServletRequest request,Model model){
 	  return  toIndex(request,model);

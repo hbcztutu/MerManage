@@ -14,9 +14,11 @@ import com.tzm.service.UserService;
  * User 表数据服务层接口实现类
  *
  */
+
 @Service("UserServiceImpl")
 public class UserServiceImpl extends SuperServiceImpl<UserDao, User> implements UserService {
 
+  
   @Override
   public Set<String> findRoles(String username) {
     // TODO Auto-generated method stub
