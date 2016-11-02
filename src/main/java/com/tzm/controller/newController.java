@@ -52,7 +52,7 @@ public class newController {
 
 	@RequestMapping(value="/testPost.do",   produces = {"application/json;charset=UTF-8"},method = RequestMethod.POST)
 	@ResponseBody
-	@Log(name="您访问了testPost.do方法")
+	//@Log(name="您访问了testPost.do方法")
 	public String toIndex(HttpServletRequest request,Model model){
 	 Map<String,Object> returnMap = new HashMap<>();
 	 String msg = "";  
@@ -87,7 +87,7 @@ public class newController {
 //        cacheManage.setCache(cache);
 //        System.out.println(cacheManage.get( token.getUsername())); 
         Logger.info("return:  "+token.getUsername());
-        return token.getUsername();
+        return "index";
         
         /*User user =  (User) userService.selectByMap(columnMap).get(0);
         Logger.info("*****username"+user.getNickname());
@@ -138,13 +138,23 @@ public class newController {
     return  toIndex(request,model);
     }
 	
-	 @Log(name="您访问了test2.do方法")
-	@RequestMapping(value="/test2.do",method= RequestMethod.POST)
+	//@Log(name="您访问了test2.do方法")
+	 @RequestMapping(value="/test2.do", method = RequestMethod.POST)
 	public String registerIndex(HttpServletRequest request,Model model){
-	  return  toIndex(request,model);
+	   Logger.info("进入test2.do");
+	   model.addAttribute("user", "user");	    
+     return "index2";
+	 // return  toIndex(request,model);
 	  }
 
-	
+	  @RequestMapping(value="/test.do", method = RequestMethod.GET)
+	  public String testIndex(HttpServletRequest request,Model model){
+	     Logger.info("进入test.do");
+	     model.addAttribute("user", "user");      
+	     return "index3";
+	   // return  toIndex(request,model);
+	    }
+
 
 
 	
