@@ -26,9 +26,11 @@ public class XmlUtils {
 		if (doc == null)
 			return map;
 		Element root = doc.getRootElement();
-		for (Iterator iterator = root.elementIterator(); iterator.hasNext();) {
+		for (@SuppressWarnings("rawtypes")
+    Iterator iterator = root.elementIterator(); iterator.hasNext();) {
 			Element e = (Element) iterator.next();
-			List list = e.elements();
+			@SuppressWarnings("rawtypes")
+      List list = e.elements();
 			if (list.size() > 0) {
 				map.put(e.getName(), Dom2Map(e));
 			} else
@@ -37,7 +39,8 @@ public class XmlUtils {
 		return map;
 	}
 
-	public static Map Dom2Map(Element e) {
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+  public static Map Dom2Map(Element e) {
 		Map map = new HashMap();
 		List list = e.elements();
 		if (list.size() > 0) {
