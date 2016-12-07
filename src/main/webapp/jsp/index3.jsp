@@ -46,7 +46,7 @@
 
                 </div>
 
-
+<!-- 
  <div class="skin-part">
             <div id="tree-wrap">
                 <div class="side-bar">
@@ -256,7 +256,7 @@
                     </ul>
 </div>
 </div>
-</div>
+</div> -->
 
 
 

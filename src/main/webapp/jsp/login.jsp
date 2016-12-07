@@ -31,14 +31,14 @@ function subform(){
     </head>
 
     <body onload="init()" >
-
+00000000000000000000000
         <div class="page-container">
             <h1 ><img alt="后台管理登录系统	" src="assets/img/admin_logo.png"></h1>
             <form id = "form" action="testPost.do" method="post"  ">
                 <input type="text" name="username" class="username" placeholder="用户名">
                 <input type="password" name="password" class="password" placeholder="密码">
                 <div class="checkcode">
-  			    <input type="text"  id="J_codetext" style= "width:120px;float:left" placeholder="验证码"  maxlength="4" class="login_txtbx">
+  			    <input type="text"  id="J_codetext" style= "width:120px;float:left" placeholder="00000000000验证码"  maxlength="4" class="login_txtbx">
     			<canvas style= "inline:true;margin-top:30px;width:80px; " class="J_codeimg" id="myCanvas" onclick="createCode()">
     			对不起，您的浏览器不支持canvas，请下载最新版浏览器!</canvas>
   				</div>

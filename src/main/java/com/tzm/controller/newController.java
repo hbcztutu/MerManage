@@ -147,6 +147,7 @@ public class newController {
 	 // return  toIndex(request,model);
 	  }
 
+	 // @Log(name="您访问了index3.do方法")
 	  @RequestMapping(value="/test.do", method = RequestMethod.GET)
 	  public String testIndex(HttpServletRequest request,Model model){
 	     Logger.info("进入test.do");

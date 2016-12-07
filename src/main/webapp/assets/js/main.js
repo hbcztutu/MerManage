@@ -56,8 +56,6 @@ head.js("assets/js/slidebars/slidebars.min.js", "http://cdnjs.cloudflare.com/aja
 head.js("assets/js/search/jquery.quicksearch.js", function() {
 
     $('input.id_search').quicksearch('#menu-showhide li, .menu-left-nest li');
-   
-   
 
 });
 //-------------------------------------------------------------
